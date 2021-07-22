@@ -1,0 +1,4 @@
+com\liuming\dao\DormBuildDao.class
+com\liuming\App.class
+com\liuming\domain\TbDormBuild.class
+com\liuming\domain\TbUser.class

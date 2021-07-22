@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--约束文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--    mapper当前文件的跟标签namespace:命名空间，唯一值，使用dao接口的全限定名称-->
+<mapper namespace="com.liuming.dao.DormBuildDao">
+<!--    使用特定标签表示特定操作-->
+<!--    select:查询 update:更新  insert:插入  delete:删除-->
+<!--    id:你要执行的sql语法的唯一值，mybatis会使这id的值来找到这个要执行的sql语句，使用接口中的方法名-->
+<!--resultSetType是你的执行结果得到的结果对应的Java对象类型-->
+    <select id="selectBuilds" resultType="com.liuming.domain.TbDormBuild">select * from tb_dormbuild</select>
+    <insert id="insertDormBuild">insert into tb_dormbuild (name,remark,disabled) values ("男生宿舍1","经管系",0);</insert>
+    <insert id="insertDormBuildByClass">insert into tb_dormbuild (name,remark,disabled) values (#{name},#{remark},#{disabled});</insert>
+</mapper>

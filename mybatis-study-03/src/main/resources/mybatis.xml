@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    实现了把sql语句打印到控制台，开启日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--    环境配置：数据库的连接信息 default:必须和env的id的某一个一样-->
+    <environments default="development">
+        <!--        id:一个唯一值，表示环境的名称-->
+        <environment id="development">
+            <!--transactionManager：mybatis的事务类型，jdbc表示使用jdbc当中的Connection对象的Commit，rollback做事务处理-->
+            <transactionManager type="JDBC"/>
+            <!--            dataSource:数据源，连接数据库的 type表示数据源的类型，pooled表示使用连接池-->
+            <dataSource type="POOLED">
+                <!--                数据库驱动类名-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/dorm"/>
+                <property name="username" value="root"/>
+                <property name="password" value="243459"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--   sql mapper（sql映射文件的位置）-->
+    <mappers>
+        <!--        一个mapper指定一个文件的位置，类路径开始路径信息，maven编译的target/classes下的路径信息,但是默认情况下不会编译xml文件需要在pom中添加插件-->
+        <mapper resource="com/liuming/dao/DormBuildDao.xml"/>
+    </mappers>
+</configuration>
